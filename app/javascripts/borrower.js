@@ -12,7 +12,8 @@ var CrowdBank = contract(bank_artifacts);
 var Mortgage = contract(bank_artifacts2);
 var account;
 var wtoE;
-var GAS_AMOUNT = 90000000;
+//var GAS_AMOUNT = 90000000;
+var GAS_AMOUNT=6721970;
 
 var LOANSTATE = {
   0 : "ACCEPTING",
@@ -159,7 +160,7 @@ function showPastLoans() {
               <td>'+LOANSTATE[el[0].valueOf()]+'</td>\
               <td>'+new Date(el[1].valueOf()*1000).toDateString()+'</td>\
               <td>'+el[2].valueOf()/wtoE+' eth</td>\
-              <td><a target="_blank" href="http://mortgage.crowdbank.gov.in:8080/verify.html?hash='+web3.toUtf8(el[5].valueOf())+'">Link</a></td>\
+              <td><a target="_blank" href="http://localhost:8080/verify.html?hash='+web3.toUtf8(el[5].valueOf())+'">Link</a></td>\
               <td>'+el[3].valueOf()/wtoE+' eth</td>\
               <td><button class="btn btn-default" onclick="showLoanDetails('+el[4].valueOf()+')">Details</button></td>\
               <td>'+LOANSTATEACTION(el[0].valueOf(),el[4].valueOf())+'</td>\

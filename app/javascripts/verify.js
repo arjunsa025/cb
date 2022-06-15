@@ -10,13 +10,16 @@ import bank_artifacts from '../../build/contracts/Mortgage.json';
 var Mortgage = contract(bank_artifacts);
 var account;
 var wtoE;
-var GAS_AMOUNT = 90000000;
+//var GAS_AMOUNT = 90000000;
+var GAS_AMOUNT=6721970;
+
 var BASE_URL = 'https://sh3r.tech/files/';
+var BASE_URL='http://localhost:8081/ipfs/';
 var md5 = require('md5');
 
 window.verifyData = function() {
   var hash = $('#file-hash').val();
-  var link = BASE_URL + hash + '.pdf';
+  var link = BASE_URL + hash ;
   document.getElementById('pdfRenderer').src = link;
   Mortgage.deployed().then(function(contractInstance) {
     contractInstance.getOwnerCount.call(hash).then(function(result) {

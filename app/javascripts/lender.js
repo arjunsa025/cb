@@ -4,6 +4,7 @@
 // Import libraries we need.
 import { default as Web3} from 'web3';
 import { default as contract } from 'truffle-contract'
+var ref = document.getElementById("newloan-mortgage");
 
 import bank_artifacts from '../../build/contracts/CrowdBank.json'
 
@@ -64,7 +65,7 @@ function populateProposals() {
             <td>" + el[1].valueOf() + "</td>\
             <td>" + el[5].valueOf()/wtoE + " eth</td>\
             <td>"+new Date(el[6].valueOf()*1000).toDateString()+"</td>\
-            <td><a target='_blank' href='http://mortgage.crowdbank.gov.in:8080/verify.html?hash="+web3.toUtf8(el[7].valueOf())+"'>Link</a></td>\
+            <td><a target='_blank' href='http://mortgage.crowdbank.gov.in:8080/verify.html?hash='+ref>Link</a></td>\
             <td>" + PROPOSALSTATE[el[2].valueOf()]  + "</td>\
             <td>" + el[3].valueOf() + "</td>\
             <td>" + el[4].valueOf()/wtoE + "</td>\
@@ -116,7 +117,7 @@ function populateRecentLoans() {
             <td>" + LOANSTATE[el[1].valueOf()] + "</td>\
             <td>" + new Date(el[2].valueOf()*1000).toDateString() + "</td>\
             <td>" + el[3].valueOf()/wtoE + "</td>\
-            <td><a target='_blank' href='http://mortgage.crowdbank.gov.in:8080/verify.html?hash="+web3.toUtf8(el[7].valueOf())+"'>Link</a></td>\
+            <td><a target='_blank' href='http://localhost:8080/verify.html?hash='+ref>Link</a></td>\
             <td>" + amountHTML  + "</td>\
             <td>" + rateHTML  + "</td>\
             <td>" + btnHTML  + "</td>\
